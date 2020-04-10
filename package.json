@@ -4,7 +4,7 @@
   "description": "Website for my 'The recipes' app",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --config webpack.config.dev.js --port 3000",
+    "start": "webpack-dev-server --config webpack.config.dev.js --port 3001",
     "clean:build": "rimraf ./build && mkdir build",
     "prebuild": "run-p clean:build",
     "build": "webpack --config webpack.config.prod.js",
@@ -22,6 +22,7 @@
   "homepage": "https://github.com/sebek78/recipes-web#readme",
   "dependencies": {
     "@babel/polyfill": "^7.8.7",
+    "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "rimraf": "^3.0.2"

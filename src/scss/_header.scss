@@ -1,0 +1,11 @@
+.header {
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: $color-ruby-red;
+  border-bottom: 2px solid $color-ruby;
+}
+.header__logo {
+  padding: 10px;
+}
