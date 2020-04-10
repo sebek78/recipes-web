@@ -1,0 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+$test-color: lightseagreen;
+
+h1 {
+  color: deepskyblue;
+}
+
+h2 {
+  color: $test-color;
+}
