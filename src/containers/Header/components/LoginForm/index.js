@@ -31,22 +31,28 @@ const LoginForm = ({ setLoggedIn }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="login">Login</label>
-      <input
-        type="text"
-        id="login"
-        onChange={handleChangeLogin}
-        value={formData.value}
-      />
-      <label htmlFor="password">Hasło</label>
-      <input
-        type="password"
-        id="password"
-        onChange={handleChangePassword}
-        value={formData.password}
-      />
-      <input type="submit" value="Zaloguj" />
+    <form className="header__login-form" onSubmit={handleSubmit}>
+      <div className="login-form__inputs">
+        <div className="login-form__row">
+          <label htmlFor="login">Login</label>
+          <input
+            type="text"
+            id="login"
+            onChange={handleChangeLogin}
+            value={formData.value}
+          />
+        </div>
+        <div className="login-form__row">
+          <label htmlFor="password">Hasło</label>
+          <input
+            type="password"
+            id="password"
+            onChange={handleChangePassword}
+            value={formData.password}
+          />
+        </div>
+      </div>
+      <input className="login-form__button" type="submit" value="Zaloguj" />
     </form>
   );
 };

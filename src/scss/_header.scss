@@ -1,11 +1,45 @@
 .header {
-  height: 60px;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
   color: $color-ruby-red;
   border-bottom: 2px solid $color-ruby;
+
+  @media (min-width: 610px) {
+    flex-direction: row;
+  }
 }
 .header__logo {
-  padding: 10px;
+  height: 72px;
+  width: 270px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  // outline: 1px dashed blue;
+  font-size: 32px;
+  padding-right: 4px;
+}
+
+.header__login-form {
+  width: 280px;
+  // outline: 1px dashed green;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+}
+.login-form {
+  // outline: 1px dashed blue;
+  &__inputs {
+    // outline: 1px dashed purple;
+  }
+  &__row {
+    height: 36px;
+  }
+  &__button {
+    margin-left: 8px;
+    height: 48px;
+    outline: 1px dashed yellow;
+  }
 }
