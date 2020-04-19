@@ -23,7 +23,6 @@ const LoginForm = ({ setLoggedIn }) => {
       .then((response) => response.json())
       .then((data) => {
         if (data.authenticated) setLoggedIn(true);
-        console.log(data);
       })
       .catch((error) => {
         console.error("Error:", error);

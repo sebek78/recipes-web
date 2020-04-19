@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
 import Header from "../Header";
 import Menu from "../Menu";
@@ -7,9 +7,30 @@ import HomePage from "../HomePage";
 import PageNotFound from "../PageNotFound";
 
 const App = () => {
+  const [status, setStatus] = useState({
+    authenticated: false,
+    username: undefined,
+  });
+  useEffect(() => {
+    fetch("http://localhost:3000/authenticated", {
+      method: "get",
+      credentials: "same-origin",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setStatus({
+          authenticated: data.authenticated,
+          username: data.username,
+        });
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  }, []);
+
   return (
     <>
-      <Header />
+      <Header status={status} />
       <Menu />
       <Switch>
         <Route path="/about" component={AboutPage} />
