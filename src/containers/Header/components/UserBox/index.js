@@ -1,21 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
+import api from "./../../../../utils/api";
 
 const UserBox = ({ setLoggedIn }) => {
   const handleClick = () => {
-    fetch("http://localhost:3000/logout", {
-      method: "post",
-      headers: { "Content-Type": "text/html" },
-      credentials: "same-origin",
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (!data.authenticated) setLoggedIn(false);
-        console.log(data);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
+    api.post("/logout").then((data) => {
+      if (!data.authenticated) setLoggedIn(false);
+    });
   };
 
   return (

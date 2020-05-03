@@ -5,6 +5,7 @@ import Menu from "../Menu";
 import AboutPage from "../AboutPage";
 import HomePage from "../HomePage";
 import PageNotFound from "../PageNotFound";
+import api from "./../../utils/api";
 
 const App = () => {
   const [status, setStatus] = useState({
@@ -12,20 +13,12 @@ const App = () => {
     username: undefined,
   });
   useEffect(() => {
-    fetch("http://localhost:3000/authenticated", {
-      method: "get",
-      credentials: "same-origin",
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setStatus({
-          authenticated: data.authenticated,
-          username: data.username,
-        });
-      })
-      .catch((error) => {
-        console.error("Error:", error);
+    api.get("/authenticated").then((data) => {
+      setStatus({
+        authenticated: data.authenticated,
+        username: data.username,
       });
+    });
   }, []);
 
   return (

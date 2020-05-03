@@ -21,7 +21,6 @@
   },
   "homepage": "https://github.com/sebek78/recipes-web#readme",
   "dependencies": {
-    "@babel/polyfill": "^7.8.7",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -31,6 +30,7 @@
   "devDependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.0",
+    "@babel/plugin-transform-runtime": "^7.9.6",
     "@babel/preset-env": "^7.9.5",
     "@babel/preset-react": "^7.9.4",
     "autoprefixer": "^9.7.6",

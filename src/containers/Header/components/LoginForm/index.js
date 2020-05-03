@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import api from "./../../../../utils/api";
 
 const LoginForm = ({ setLoggedIn }) => {
   const [formData, setFormData] = useState({
@@ -14,19 +15,9 @@ const LoginForm = ({ setLoggedIn }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch("http://localhost:3000/login", {
-      method: "post",
-      headers: { "Content-Type": "text/html" },
-      credentials: "same-origin",
-      body: JSON.stringify(formData),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.authenticated) setLoggedIn(true);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
+    api.post("/login", formData).then((data) => {
+      if (data.authenticated) setLoggedIn(true);
+    });
   };
 
   return (
