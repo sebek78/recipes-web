@@ -4,7 +4,7 @@ import Logo from "./components/Logo";
 import LoginForm from "./components/LoginForm";
 import UserBox from "./components/UserBox";
 
-const Header = ({ status }) => {
+const Header = ({ status, setStatus }) => {
   const [loggedIn, setLoggedIn] = useState(status.authenticated);
   useEffect(() => {
     setLoggedIn(status.authenticated);
@@ -14,9 +14,9 @@ const Header = ({ status }) => {
     <header className="header">
       <Logo />
       {loggedIn ? (
-        <UserBox setLoggedIn={setLoggedIn} />
+        <UserBox setLoggedIn={setLoggedIn} setStatus={setStatus} />
       ) : (
-        <LoginForm setLoggedIn={setLoggedIn} />
+        <LoginForm setLoggedIn={setLoggedIn} setStatus={setStatus} />
       )}
     </header>
   );
@@ -27,6 +27,7 @@ Header.propTypes = {
     authenticated: PropTypes.bool.isRequired,
     username: PropTypes.string,
   }).isRequired,
+  setStatus: PropTypes.func.isRequired,
 };
 
 export default Header;

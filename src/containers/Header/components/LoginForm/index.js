@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import api from "./../../../../utils/api";
 
-const LoginForm = ({ setLoggedIn }) => {
+const LoginForm = ({ setLoggedIn, setStatus }) => {
   const [formData, setFormData] = useState({
     login: "",
     password: "",
@@ -16,7 +16,15 @@ const LoginForm = ({ setLoggedIn }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     api.post("/login", formData).then((data) => {
-      if (data.authenticated) setLoggedIn(true);
+      if (data.authenticated) {
+        setLoggedIn(true);
+        setStatus({
+          authenticated: data.authenticated,
+          username: data.username,
+        });
+      } else {
+        console.log(data);
+      }
     });
   };
 
@@ -49,6 +57,7 @@ const LoginForm = ({ setLoggedIn }) => {
 
 LoginForm.propTypes = {
   setLoggedIn: PropTypes.func.isRequired,
+  setStatus: PropTypes.func.isRequired,
 };
 
 export default LoginForm;

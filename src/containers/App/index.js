@@ -23,8 +23,8 @@ const App = () => {
 
   return (
     <>
-      <Header status={status} />
-      <Menu />
+      <Header status={status} setStatus={setStatus} />
+      <Menu authenticated={status.authenticated} />
       <Switch>
         <Route path="/about" component={AboutPage} />
         <Route exact path="/" component={HomePage} />
