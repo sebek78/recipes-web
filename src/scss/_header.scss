@@ -11,29 +11,6 @@
   }
 }
 
-.header__login-form {
-  width: 280px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 8px 0;
-}
-
-.login-form {
-  // outline: 1px dashed blue;
-  &__inputs {
-    // outline: 1px dashed purple;
-  }
-  &__row {
-    height: 36px;
-  }
-  &__button {
-    margin-left: 8px;
-    height: 48px;
-    outline: 1px dashed yellow;
-  }
-}
-
 .register-wrapper {
   position: absolute;
   top: 0;

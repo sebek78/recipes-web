@@ -1,11 +1,32 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import api from "./../../../../utils/api";
+import styled from "styled-components";
+import InputText from "../../../../components/InputText";
+import Button from "../../../../components/Button";
+import { COLORS, FONTS } from "../../../../utils/theme";
+
+const StyledForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const ErrorBox = styled.p`
+  padding: 6px 12px 6px 12px;
+  margin: 4px;
+  color: ${COLORS.primaryDark};
+  font-size: ${FONTS.medium};
+  font-weight: bold;
+  background-color: ${COLORS.secondaryLight};
+  color: black;
+`;
 
 const LoginForm = ({ setLoggedIn, setStatus }) => {
   const [formData, setFormData] = useState({
     login: "",
     password: "",
+    error: "",
   });
 
   const handleChangeLogin = (e) =>
@@ -15,6 +36,7 @@ const LoginForm = ({ setLoggedIn, setStatus }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setFormData({ ...formData, error: "" });
     api.post("/login", formData).then((data) => {
       if (data.authenticated) {
         setLoggedIn(true);
@@ -23,35 +45,28 @@ const LoginForm = ({ setLoggedIn, setStatus }) => {
           username: data.username,
         });
       } else {
-        console.log(data);
+        setFormData({ ...formData, error: data.message });
       }
     });
   };
-
   return (
-    <form className="header__login-form" onSubmit={handleSubmit}>
+    <StyledForm onSubmit={handleSubmit}>
       <div className="login-form__inputs">
-        <div className="login-form__row">
-          <label htmlFor="login">Login</label>
-          <input
-            type="text"
-            id="login"
-            onChange={handleChangeLogin}
-            value={formData.value}
-          />
-        </div>
-        <div className="login-form__row">
-          <label htmlFor="password">Hasło</label>
-          <input
-            type="password"
-            id="password"
-            onChange={handleChangePassword}
-            value={formData.password}
-          />
-        </div>
+        <InputText
+          label="Login"
+          value={formData.login}
+          handleChange={handleChangeLogin}
+        />
+        <InputText
+          label="Hasło"
+          value={formData.password}
+          handleChange={handleChangePassword}
+          password
+        />
       </div>
-      <input className="login-form__button" type="submit" value="Zaloguj" />
-    </form>
+      {formData.error.length !== 0 && <ErrorBox>{formData.error}</ErrorBox>}
+      <Button label="Zaloguj" handleClick={handleSubmit} submit />
+    </StyledForm>
   );
 };
 

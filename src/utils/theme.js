@@ -1,4 +1,4 @@
-const COLORS = {
+export const COLORS = {
   bgColor: "#eaeaea",
   bgColorAlpha: "rgba(234, 234, 234, 0.9)",
   primary: "#a91401",
@@ -8,4 +8,7 @@ const COLORS = {
   secondaryLight: "#eda895",
 };
 
-export default COLORS;
+export const FONTS = {
+  medium: "16px",
+  bigger: "24px",
+};

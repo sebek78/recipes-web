@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "../../../../img/favicon.png";
 import styled from "styled-components";
-import COLORS from "../../../../utils/colors";
+import { COLORS, FONTS } from "../../../../utils/theme";
 
 const StyledLogo = styled.div`
   height: 64px;
@@ -9,10 +9,11 @@ const StyledLogo = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  font-size: 24px;
+  font-size: ${FONTS.bigger};
+  font-weight: bold;
   padding-right: 4px;
   line-height: 1;
-  color: ${COLORS.primary};
+  color: ${COLORS.primaryDark};
 `;
 
 const Logo = () => (
