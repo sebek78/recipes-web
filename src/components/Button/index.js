@@ -11,7 +11,7 @@ const StyledButton = styled.button`
   max-width: 160px;
   border-radius: 4px;
   font-size: ${FONTS.medium};
-  line-height: 20px;
+  line-height: 28px;
   text-align: center;
   text-transform: uppercase;
   text-decoration: none;

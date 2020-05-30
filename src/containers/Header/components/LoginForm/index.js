@@ -5,6 +5,7 @@ import styled from "styled-components";
 import InputText from "../../../../components/InputText";
 import Button from "../../../../components/Button";
 import { COLORS, FONTS } from "../../../../utils/theme";
+import MenuFormButtons from "../MenuFormButtons";
 
 const StyledForm = styled.form`
   display: flex;
@@ -22,7 +23,7 @@ const ErrorBox = styled.p`
   color: black;
 `;
 
-const LoginForm = ({ setLoggedIn, setStatus }) => {
+const LoginForm = ({ setLoggedIn, setStatus, toggleForms }) => {
   const [formData, setFormData] = useState({
     login: "",
     password: "",
@@ -51,21 +52,24 @@ const LoginForm = ({ setLoggedIn, setStatus }) => {
   };
   return (
     <StyledForm onSubmit={handleSubmit}>
-      <div className="login-form__inputs">
-        <InputText
-          label="Login"
-          value={formData.login}
-          handleChange={handleChangeLogin}
-        />
-        <InputText
-          label="Hasło"
-          value={formData.password}
-          handleChange={handleChangePassword}
-          password
-        />
-      </div>
+      <InputText
+        label="Login"
+        value={formData.login}
+        handleChange={handleChangeLogin}
+      />
+      <InputText
+        label="Hasło"
+        value={formData.password}
+        handleChange={handleChangePassword}
+        password
+      />
       {formData.error.length !== 0 && <ErrorBox>{formData.error}</ErrorBox>}
-      <Button label="Zaloguj" handleClick={handleSubmit} submit />
+      <MenuFormButtons>
+        <a href="#" style={{ display: "block" }} onClick={toggleForms}>
+          Rejestracja
+        </a>
+        <Button label="Zaloguj" handleClick={handleSubmit} submit />
+      </MenuFormButtons>
     </StyledForm>
   );
 };
@@ -73,6 +77,7 @@ const LoginForm = ({ setLoggedIn, setStatus }) => {
 LoginForm.propTypes = {
   setLoggedIn: PropTypes.func.isRequired,
   setStatus: PropTypes.func.isRequired,
+  toggleForms: PropTypes.func.isRequired,
 };
 
 export default LoginForm;

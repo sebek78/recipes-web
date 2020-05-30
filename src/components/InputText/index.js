@@ -5,11 +5,12 @@ import { COLORS, FONTS } from "../../utils/theme";
 
 const StyledInputText = styled.div`
   box-sizing: border-box;
-  padding: 6px 12px 6px 12px;
-  margin: 4px;
+  padding: 6px 0;
+  margin: 4px auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 `;
 
 const StyledLabel = styled.label`

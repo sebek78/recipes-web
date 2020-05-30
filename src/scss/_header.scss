@@ -1,6 +1,6 @@
 .header {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   color: $color-ruby-red;
@@ -11,27 +11,9 @@
   }
 }
 
-.register-wrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: $bg-color-alpha;
-  z-index: 2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .register-form {
-  width: 300px;
-  height: 200px;
   display: flex;
   flex-direction: column;
-  padding: 8px;
-  background-color: $bg-color;
-  border: 2px solid $color-ruby;
   &__row {
     display: flex;
     justify-content: space-between;
@@ -40,9 +22,5 @@
   }
   &__button {
     margin-top: 16px;
-  }
-  &__close-button {
-    margin-left: auto;
-    width: 30px;
   }
 }
