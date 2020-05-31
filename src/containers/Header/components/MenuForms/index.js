@@ -23,10 +23,18 @@ const FormContainer = styled.div`
   }
 `;
 
+const CloseButtonWrapper = styled.div`
+  position: absolute;
+  right: 4px;
+  top: 4px;
+`;
+
 const MenuForms = ({ setLoggedIn, setStatus, onClose, toggleForms, view }) => {
   return (
     <FormContainer>
-      <CloseButton handleClick={onClose} />
+      <CloseButtonWrapper>
+        <CloseButton onClick={onClose} />
+      </CloseButtonWrapper>
       {view.registerForm && <RegisterUser toggleForms={toggleForms} />}
       {view.loginForm && (
         <LoginForm

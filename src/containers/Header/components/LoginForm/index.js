@@ -2,25 +2,16 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import api from "./../../../../utils/api";
 import styled from "styled-components";
-import InputText from "../../../../components/InputText";
+import InputText from "../../../../components/formComponents/InputText";
 import Button from "../../../../components/Button";
-import { COLORS, FONTS } from "../../../../utils/theme";
-import MenuFormButtons from "../MenuFormButtons";
+import MenuFormButtons from "../../../../components/formComponents/MenuFormButtons";
+import TextButton from "../../../../components/TextButton";
+import ErrorBox from "../../../../components/formComponents/ErrorBox";
 
 const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
-
-const ErrorBox = styled.p`
-  padding: 6px 12px 6px 12px;
-  margin: 4px;
-  color: ${COLORS.primaryDark};
-  font-size: ${FONTS.medium};
-  font-weight: bold;
-  background-color: ${COLORS.secondaryLight};
-  color: black;
 `;
 
 const LoginForm = ({ setLoggedIn, setStatus, toggleForms }) => {
@@ -63,11 +54,9 @@ const LoginForm = ({ setLoggedIn, setStatus, toggleForms }) => {
         handleChange={handleChangePassword}
         password
       />
-      {formData.error.length !== 0 && <ErrorBox>{formData.error}</ErrorBox>}
+      {formData.error.length !== 0 && <ErrorBox text={formData.error} />}
       <MenuFormButtons>
-        <a href="#" style={{ display: "block" }} onClick={toggleForms}>
-          Rejestracja
-        </a>
+        <TextButton label="Rejestracja" handleClick={toggleForms} />
         <Button label="Zaloguj" handleClick={handleSubmit} submit />
       </MenuFormButtons>
     </StyledForm>

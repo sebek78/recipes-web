@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { COLORS, FONTS } from "../../utils/theme";
+import { COLORS, FONTS } from "../../../utils/theme";
 
 const StyledInputText = styled.div`
   box-sizing: border-box;
@@ -23,12 +23,13 @@ const StyledLabel = styled.label`
 
 const StyledInput = styled.input`
   padding: 6px 12px 6px 12px;
-  margin: 4px;
+  margin: 4px 0 4px 10px;
   border: 0;
   border-bottom: 2px solid ${COLORS.primaryDark};
   background-color: ${COLORS.bgColor};
   font-size: ${FONTS.medium};
   font-family: "Nunito", sans-serif;
+  width: 198px;
   &:focus {
     outline: 2px solid ${COLORS.secondaryLight};
     background-color: ${COLORS.bgColor};

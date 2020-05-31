@@ -1,34 +1,33 @@
-import React from "react";
-import PropTypes from "prop-types";
 import styled from "styled-components";
 import { COLORS } from "../../../../utils/theme";
 
-const StyledButton = styled.button`
-  padding: 4px 8px;
+const MenuButton = styled.button`
+  padding: 0;
   margin: 4px;
+  width: 44px;
+  height: 44px;
   border-radius: 4px;
-  border: none;
+  border-style: solid;
+  border-color: ${COLORS.primary};
+  border-width: 20px 8px;
   outline: none;
-  background-color: ${COLORS.primary};
-`;
-
-const StyledDiv = styled.div`
-  width: 28px;
-  height: 4px;
   background-color: white;
-  margin: 6px 0;
+  position: relative;
+  &:before,
+  &:after {
+    position: absolute;
+    left: 0px;
+    content: "";
+    height: 4px;
+    width: 28px;
+    background-color: white;
+  }
+  &:before {
+    top: -8px;
+  }
+  &:after {
+    top: 8px;
+  }
 `;
-
-const MenuButton = ({ handleClick }) => (
-  <StyledButton onClick={handleClick}>
-    <StyledDiv />
-    <StyledDiv />
-    <StyledDiv />
-  </StyledButton>
-);
-
-MenuButton.propTypes = {
-  handleClick: PropTypes.func.isRequired,
-};
 
 export default MenuButton;

@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import api from "./../../../../utils/api";
+import TextButton from "../../../../components/TextButton";
 
 const UserBox = ({ setLoggedIn, setStatus }) => {
   const handleClick = () => {
@@ -15,11 +16,7 @@ const UserBox = ({ setLoggedIn, setStatus }) => {
     });
   };
 
-  return (
-    <div>
-      <button onClick={handleClick}>Logout</button>
-    </div>
-  );
+  return <TextButton label="Wyloguj" handleClick={handleClick} />;
 };
 
 UserBox.propTypes = {
