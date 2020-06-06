@@ -1,15 +1,14 @@
+@import "./scss/variables";
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-$test-color: lightseagreen;
-
-h1 {
-  color: deepskyblue;
-}
-
-h2 {
-  color: $test-color;
+body {
+  background-color: $bg-color;
+  width: 90vw;
+  margin: 0 auto;
+  font-family: "Nunito", sans-serif;
 }

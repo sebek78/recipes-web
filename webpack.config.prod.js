@@ -16,7 +16,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: "src/index.html",
-      // favicon: "src/tw-favicon.png",
+      favicon: "src/img/favicon.png",
       minify: {
         // see https://github.com/kangax/html-minifier#options-quick-reference
         removeComments: true,
